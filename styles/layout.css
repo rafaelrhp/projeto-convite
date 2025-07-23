@@ -51,5 +51,12 @@ main {
     border-radius: 12px;
     flex-shrink: 0;
     overflow: auto;
+    padding: 80px 130px;
+
+    & > h1 {
+      font: var(--heading-md);
+      color: var(--text-heading);
+      margin-bottom: 40px;
+    }
   }
 }
