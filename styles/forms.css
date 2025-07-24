@@ -4,6 +4,7 @@
 @import url(./fields/radio-theme.css);
 @import url(./fields/switch.css);
 @import url(./fields/file-upload.css);
+@import url(./fields/footer.css);
 
 fieldset {
   border: none;

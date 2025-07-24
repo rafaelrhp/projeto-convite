@@ -352,6 +352,74 @@
                 </div>
               </div>
             </fieldset>
+
+            <fieldset>
+              <div class="section-title">
+                <img src="./assets/icons/contact.svg" alt="" />
+                <legend>Dados para contato</legend>
+              </div>
+              <div>
+                <div class="input-wrapper">
+                  <label for="Nome">Nome</label>
+                  <input type="name" placeholder="Nome completo" />
+                </div>
+                <div class="grid" style="margin-top: 24px">
+                  <div class="input-wrapper grid-1">
+                    <label for="data-inicial">E-mail</label>
+                    <input
+                      type="email"
+                      name="email"
+                      id="email"
+                      placeholder="exemplo@email.com" />
+                  </div>
+                  <div class="input-wrapper grid-2">
+                    <label for="phone">Telefone</label>
+                    <input
+                      type="text"
+                      name="phone"
+                      id="phone"
+                      placeholder="(99) 99999-9999 " />
+                  </div>
+                </div>
+              </div>
+              <div class="divisor"></div>
+              <footer>
+                <div>
+                  <div>
+                    <input type="checkbox" id="terms" name="terms" checked />
+                    <label for="terms">
+                      <p>
+                        Li e concordo com os <span> Termos e Condições</span> e
+                        com a <span> Política de Privacidade </span>
+                      </p>
+                    </label>
+                  </div>
+                  <div>
+                    <input
+                      type="checkbox"
+                      id="email-updates"
+                      name="email-updates" />
+                    <label for="email-updates">
+                      <p>Aceito receber atualizações e promoções por e-mail</p>
+                    </label>
+                  </div>
+                  <div>
+                    <input
+                      type="checkbox"
+                      id="sms-updates"
+                      name="sms-updates" />
+                    <label for="sms-updates">
+                      <p>Aceito receber atualizações e promoções por SMS</p>
+                    </label>
+                  </div>
+                </div>
+                <div>
+                  <button type="submit">
+                    <span>Gerar convite</span>
+                  </button>
+                </div>
+              </footer>
+            </fieldset>
           </form>
         </div>
       </main>
@@ -422,6 +490,26 @@
           container.appendChild(errorDiv);
         }
       }
+
+      // Função para garantir que os checkboxes funcionem corretamente
+      function initializeCheckboxes() {
+        const checkboxes = document.querySelectorAll(
+          'footer input[type="checkbox"]'
+        );
+
+        checkboxes.forEach((checkbox) => {
+          // Garantir que o estado inicial seja aplicado
+          checkbox.addEventListener('change', function () {
+            // Forçar reflow para garantir que o CSS seja aplicado
+            this.style.display = 'none';
+            this.offsetHeight; // Trigger reflow
+            this.style.display = '';
+          });
+        });
+      }
+
+      // Inicializar checkboxes quando a página carregar
+      document.addEventListener('DOMContentLoaded', initializeCheckboxes);
     </script>
   </body>
 </html>

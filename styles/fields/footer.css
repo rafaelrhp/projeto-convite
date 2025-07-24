@@ -1,0 +1,121 @@
+.divisor {
+  padding: 10px;
+}
+
+footer {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  padding: 40px 0px 0px;
+  gap: 48px;
+  border-top: 1px solid var(--input-base);
+}
+
+footer > div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+footer > div:first-child > div {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+footer input[type='checkbox'] {
+  all: unset;
+  width: 20px;
+  height: 20px;
+  background: var(--input-base);
+  border: 1px solid var(--input-stroke);
+  border-radius: 4px;
+  position: relative;
+  cursor: pointer;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+footer input[type='checkbox']:checked {
+  border-color: var(--brand-light);
+}
+
+footer input[type='checkbox']:checked::before {
+  content: '✓';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--brand-light);
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1;
+}
+
+footer input[type='checkbox']:not(:checked) {
+  border-color: var(--input-stroke);
+}
+
+footer input[type='checkbox']:hover {
+  border-color: var(--brand-light);
+}
+
+footer label {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 0;
+  justify-content: flex-start;
+}
+
+footer p {
+  font: var(--body-sm);
+  color: var(--text-body);
+  cursor: pointer;
+  margin: 0;
+  line-height: 1.4;
+  text-align: left;
+
+  & span {
+    color: var(--brand-light);
+    text-decoration: underline;
+  }
+}
+
+footer label p {
+  cursor: pointer;
+  margin: 0;
+  align-items: flex-start;
+  text-align: left;
+}
+
+footer > div:last-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+footer button {
+  display: flex;
+  align-items: center;
+  padding: 4px 20px;
+  gap: 12px;
+  height: 48px;
+  background: var(--brand-dar);
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+footer button::before {
+  content: '';
+  width: 20px;
+  height: 20px;
+  background-image: url(../../assets/icons/ticket.svg);
+}
+
+footer button span {
+  font: var(--body-md);
+  color: var(--text-heading);
+  flex: none;
+}
