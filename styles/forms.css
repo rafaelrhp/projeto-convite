@@ -1,5 +1,6 @@
 @import url(./fields/inputs.css);
 @import url(./fields/radio.css);
+@import url(./fields/radio-color.css);
 
 fieldset {
   border: none;
@@ -22,4 +23,8 @@ fieldset {
     width: 24px;
     height: 24px;
   }
+}
+
+fieldset + fieldset {
+  margin-top: 48px;
 }
