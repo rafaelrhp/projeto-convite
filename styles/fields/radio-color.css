@@ -1,0 +1,96 @@
+.radio-color-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.radio-color-wrapper label {
+  color: var(--text-body);
+  font: var(--body-sm);
+}
+
+.color-selection {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+  gap: 0.75rem;
+  max-width: 560px;
+}
+
+.color-selection > input {
+  display: none;
+}
+
+.color-selection > input + label {
+  width: 40px;
+  height: 40px;
+  background: var(--shape-button);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.color-selection > input + label::before {
+  content: '';
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--brand-light);
+  transition: all 0.2s ease;
+}
+
+.color-selection > input:checked + label {
+  border: 2px solid var(--brand-light);
+}
+
+#brand-light + label::before {
+  background: var(--brand-light);
+}
+
+#navy + label::before {
+  background: var(--navy);
+}
+
+#purple + label::before {
+  background: var(--purple);
+}
+
+#fuschia + label::before {
+  background: var(--fuschia);
+}
+
+#pink + label::before {
+  background: var(--pink);
+}
+
+#danger + label::before {
+  background: var(--danger);
+}
+
+#orange + label::before {
+  background: var(--orange);
+}
+
+#yellow + label::before {
+  background: var(--yellow);
+}
+
+#lime + label::before {
+  background: var(--lime);
+}
+
+#green + label::before {
+  background: var(--green);
+}
+
+#cyan + label::before {
+  background: var(--cyan);
+}
+
+/* Hover effect */
+.color-selection > input + label:hover {
+  background: var(--shape-hover);
+}
