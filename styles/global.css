@@ -64,3 +64,17 @@
 body {
   background-color: var(--shape-background);
 }
+
+.grid {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.grid-1 {
+  flex: 1;
+}
+
+.grid-2 {
+  flex: 1;
+}
