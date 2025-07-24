@@ -4,7 +4,6 @@
   align-items: flex-start;
   padding: 20px;
   overflow: hidden;
-  height: 100vh;
   gap: 20px;
 }
 
@@ -47,7 +46,6 @@ main {
   .main-container {
     background-color: var(--shape-body);
     width: 820px;
-    height: 728px;
     border-radius: 12px;
     flex-shrink: 0;
     overflow: auto;
