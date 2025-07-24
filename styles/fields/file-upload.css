@@ -1,0 +1,162 @@
+/* File Upload Component */
+
+.file-upload-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 12px;
+  width: 365px;
+  height: 79px;
+  flex: 1;
+}
+
+.file-upload-container.error {
+  height: 107px;
+}
+
+.file-upload-label {
+  color: var(--text-body);
+  margin: 0;
+  white-space: nowrap;
+}
+
+.file-upload-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  gap: 12px;
+  width: 365px;
+  height: 48px;
+  position: relative;
+}
+
+.file-upload-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 4px 12px;
+  gap: 8px;
+  width: 119px;
+  height: 40px;
+  background: var(--shape-button);
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.file-upload-button:hover {
+  background: var(--shape-hover);
+}
+
+.file-upload-button:focus {
+  outline: 2px solid var(--brand-light);
+  outline-offset: 2px;
+}
+
+.file-upload-icon {
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.file-upload-icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.file-upload-icon svg path {
+  fill: var(--brand-light);
+}
+
+.file-upload-button-text {
+  font-family: var(--font-open-sans);
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 19px;
+  color: var(--text-heading);
+  margin: 0;
+}
+
+.file-upload-input {
+  display: none;
+}
+
+.file-upload-text {
+  font-family: var(--font-open-sans);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  color: var(--input-placeholder);
+  margin: 0;
+  flex: 1;
+}
+
+.file-upload-container.filled .file-upload-text {
+  color: var(--text-body);
+}
+
+/* Error State */
+.file-upload-error {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  gap: 8px;
+  position: absolute;
+  width: 365px;
+  height: 16px;
+  left: 0.5px;
+  bottom: 4px;
+}
+
+.file-upload-error-icon {
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.file-upload-error-icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.file-upload-error-icon svg path {
+  fill: var(--danger);
+}
+
+.file-upload-error-message {
+  font-family: var(--font-open-sans);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--danger);
+  margin: 0;
+  flex: 1;
+}
+
+/* Hidden elements for different states */
+.file-upload-container.filled .file-upload-icon.hidden,
+.file-upload-container.error .file-upload-icon.hidden {
+  display: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .file-upload-container,
+  .file-upload-wrapper,
+  .file-upload-error {
+    width: 100%;
+    max-width: 365px;
+  }
+}
