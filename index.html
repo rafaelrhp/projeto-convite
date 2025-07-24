@@ -304,10 +304,47 @@
                   </div>
                 </div>
               </div>
+
+              <div class="grid">
+                <div class="switch-container">
+                  <label class="switch-label">Estilo</label>
+                  <div class="switch-wrapper">
+                    <div class="switch" onclick="toggleSwitch(this)">
+                      <div class="switch-thumb"></div>
+                    </div>
+                    <span class="switch-text">Escuro</span>
+                  </div>
+                </div>
+
+                <div>
+                  <label for="">Foto de capa</label>
+                  <div class="file">
+                    <input type="file" />
+                    <img src="" alt="" />
+                    <p>nenhum arquivo selecionando</p>
+                  </div>
+                </div>
+              </div>
             </fieldset>
           </form>
         </div>
       </main>
     </div>
+
+    <script>
+      function toggleSwitch(element) {
+        if (element.disabled) return;
+
+        element.classList.toggle('active');
+
+        // Atualizar o texto baseado no estado
+        const textElement = element.parentElement.querySelector('.switch-text');
+        if (element.classList.contains('active')) {
+          textElement.textContent = 'Claro';
+        } else {
+          textElement.textContent = 'Escuro';
+        }
+      }
+    </script>
   </body>
 </html>
