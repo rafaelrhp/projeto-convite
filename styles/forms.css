@@ -1,6 +1,7 @@
 @import url(./fields/inputs.css);
 @import url(./fields/radio.css);
 @import url(./fields/radio-color.css);
+@import url(./fields/radio-theme.css);
 
 fieldset {
   border: none;

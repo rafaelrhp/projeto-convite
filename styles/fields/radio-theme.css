@@ -1,0 +1,73 @@
+.radio-theme {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.radio-theme label {
+  color: var(--text-body);
+  font: var(--body-sm);
+}
+
+.theme-selection {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  max-width: 100%;
+}
+
+.theme-wrapper {
+  width: 134px;
+  height: 103px;
+  background-color: var(--shape-button);
+  border-radius: 8px;
+  padding: 4px 4px 8px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  position: relative;
+  transition: border-color 0.2s ease;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.theme-wrapper > input {
+  display: none;
+}
+
+.theme-wrapper > label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.theme-wrapper > label > img {
+  width: 126px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 4px;
+  padding-right: 4px;
+  display: block;
+}
+
+.theme-wrapper > label > p {
+  font: var(--body-xs);
+  text-align: center;
+  color: var(--text-heading);
+  align-self: center;
+}
+
+.theme-wrapper:has(input:checked) {
+  border: 2px solid var(--brand-light);
+}
+
+.theme-wrapper.selected {
+  border: 2px solid var(--brand-light);
+}
