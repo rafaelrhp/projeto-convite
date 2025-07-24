@@ -3,7 +3,7 @@
 @import url(./fields/radio-color.css);
 @import url(./fields/radio-theme.css);
 @import url(./fields/switch.css);
-@import url(./fields/file.css);
+@import url(./fields/file-upload.css);
 
 fieldset {
   border: none;
