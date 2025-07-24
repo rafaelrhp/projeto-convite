@@ -316,12 +316,38 @@
                   </div>
                 </div>
 
-                <div>
-                  <label for="">Foto de capa</label>
-                  <div class="file">
-                    <input type="file" />
-                    <img src="" alt="" />
-                    <p>nenhum arquivo selecionando</p>
+                <div class="file-upload-container">
+                  <label class="file-upload-label">Foto de capa</label>
+                  <div class="file-upload-wrapper">
+                    <button
+                      type="button"
+                      class="file-upload-button"
+                      onclick="document.getElementById('file-upload-input').click()">
+                      <div class="file-upload-icon">
+                        <svg
+                          width="17"
+                          height="16"
+                          viewBox="0 0 17 16"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg">
+                          <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M8.14645 1.64645C8.34171 1.45118 8.65829 1.45118 8.85355 1.64645L12.1869 4.97978C12.3821 5.17504 12.3821 5.49162 12.1869 5.68689C11.9916 5.88215 11.675 5.88215 11.4798 5.68689L9 3.20711V10C9 10.2761 8.77614 10.5 8.5 10.5C8.22386 10.5 8 10.2761 8 10V3.20711L5.52022 5.68689C5.32496 5.88215 5.00838 5.88215 4.81311 5.68689C4.61785 5.49162 4.61785 5.17504 4.81311 4.97978L8.14645 1.64645ZM2.5 9.5C2.77614 9.5 3 9.72386 3 10V12.6667C3 12.8877 3.0878 13.0996 3.24408 13.2559C3.40036 13.4122 3.61232 13.5 3.83333 13.5H13.1667C13.3877 13.5 13.5996 13.4122 13.7559 13.2559C13.9122 13.0996 14 12.8877 14 12.6667V10C14 9.72386 14.2239 9.5 14.5 9.5C14.7761 9.5 15 9.72386 15 10V12.6667C15 13.1529 14.8068 13.6192 14.463 13.963C14.1192 14.3068 13.6529 14.5 13.1667 14.5H3.83333C3.3471 14.5 2.88079 14.3068 2.53697 13.963C2.19315 13.6192 2 13.1529 2 12.6667V10C2 9.72386 2.22386 9.5 2.5 9.5Z"
+                            fill="#59B2FF" />
+                        </svg>
+                      </div>
+                      <span class="file-upload-button-text">Selecionar</span>
+                    </button>
+                    <input
+                      type="file"
+                      id="file-upload-input"
+                      class="file-upload-input"
+                      accept="image/*"
+                      onchange="handleFileUpload(this)" />
+                    <span class="file-upload-text"
+                      >Nenhum arquivo selecionado</span
+                    >
                   </div>
                 </div>
               </div>
@@ -337,12 +363,63 @@
 
         element.classList.toggle('active');
 
-        // Atualizar o texto baseado no estado
         const textElement = element.parentElement.querySelector('.switch-text');
         if (element.classList.contains('active')) {
           textElement.textContent = 'Claro';
         } else {
           textElement.textContent = 'Escuro';
+        }
+      }
+
+      function handleFileUpload(input) {
+        const container = input.closest('.file-upload-container');
+        const textElement = container.querySelector('.file-upload-text');
+        const file = input.files[0];
+
+        if (file) {
+          container.classList.remove('error');
+          container.classList.add('filled');
+
+          textElement.textContent = file.name;
+
+          const uploadIcon = container.querySelector('.file-upload-icon');
+          uploadIcon.classList.add('hidden');
+        } else {
+          container.classList.remove('filled', 'error');
+          textElement.textContent = 'Nenhum arquivo selecionado';
+
+          const uploadIcon = container.querySelector('.file-upload-icon');
+          uploadIcon.classList.remove('hidden');
+        }
+      }
+
+      function showErrorState() {
+        const container = document.querySelector('.file-upload-container');
+        const textElement = container.querySelector('.file-upload-text');
+
+        container.classList.remove('filled');
+        container.classList.add('error');
+        textElement.textContent = 'Arquivo muito grande';
+
+        if (!container.querySelector('.file-upload-error')) {
+          const errorDiv = document.createElement('div');
+          errorDiv.className = 'file-upload-error';
+          errorDiv.innerHTML = `
+            <div class="file-upload-error-icon">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_2140_175)">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M8.00004 1.83325C4.59428 1.83325 1.83337 4.59416 1.83337 7.99992C1.83337 11.4057 4.59428 14.1666 8.00004 14.1666C11.4058 14.1666 14.1667 11.4057 14.1667 7.99992C14.1667 4.59416 11.4058 1.83325 8.00004 1.83325ZM0.833374 7.99992C0.833374 4.04188 4.042 0.833252 8.00004 0.833252C11.9581 0.833252 15.1667 4.04188 15.1667 7.99992C15.1667 11.958 11.9581 15.1666 8.00004 15.1666C4.042 15.1666 0.833374 11.958 0.833374 7.99992ZM8.00004 4.83325C8.27618 4.83325 8.50004 5.05711 8.50004 5.33325V7.99992C8.50004 8.27606 8.27618 8.49992 8.00004 8.49992C7.7239 8.49992 7.50004 8.27606 7.50004 7.99992V5.33325C7.50004 5.05711 7.7239 4.83325 8.00004 4.83325ZM7.50004 10.6666C7.50004 10.3904 7.7239 10.1666 8.00004 10.1666H8.00671C8.28285 10.1666 8.50671 10.3904 8.50671 10.6666C8.50671 10.9427 8.28285 11.1666 8.00671 11.1666H8.00004C7.7239 11.1666 7.50004 10.9427 7.50004 10.6666Z" fill="#FF5959"/>
+                </g>
+                <defs>
+                  <clipPath id="clip0_2140_175">
+                    <rect width="16" height="16" fill="white"/>
+                  </clipPath>
+                </defs>
+              </svg>
+            </div>
+            <span class="file-upload-error-message">Arquivo muito grande. Tamanho máximo: 5MB</span>
+          `;
+          container.appendChild(errorDiv);
         }
       }
     </script>
