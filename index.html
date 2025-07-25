@@ -491,24 +491,20 @@
         }
       }
 
-      // Função para garantir que os checkboxes funcionem corretamente
       function initializeCheckboxes() {
         const checkboxes = document.querySelectorAll(
           'footer input[type="checkbox"]'
         );
 
         checkboxes.forEach((checkbox) => {
-          // Garantir que o estado inicial seja aplicado
           checkbox.addEventListener('change', function () {
-            // Forçar reflow para garantir que o CSS seja aplicado
             this.style.display = 'none';
-            this.offsetHeight; // Trigger reflow
+            this.offsetHeight;
             this.style.display = '';
           });
         });
       }
 
-      // Inicializar checkboxes quando a página carregar
       document.addEventListener('DOMContentLoaded', initializeCheckboxes);
     </script>
   </body>
